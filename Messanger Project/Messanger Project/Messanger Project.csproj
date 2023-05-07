@@ -49,6 +49,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppData.cs">
+      <DependentUpon>AppData.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AppData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppData.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Messanger.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +86,17 @@
     <EmbeddedResource Include="Registration Form.resx">
       <DependentUpon>Registration Form.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="AppData.xsc">
+      <DependentUpon>AppData.xsd</DependentUpon>
+    </None>
+    <None Include="AppData.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AppData.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="AppData.xss">
+      <DependentUpon>AppData.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

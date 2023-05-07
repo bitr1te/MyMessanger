@@ -21,5 +21,30 @@ namespace Messanger_Project
         {
 
         }
+
+        private void butSignIn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkRemember_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void выйтиИзАккаунтаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

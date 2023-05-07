@@ -68,12 +68,14 @@
             this.выйтиИзАккаунтаToolStripMenuItem.Name = "выйтиИзАккаунтаToolStripMenuItem";
             this.выйтиИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выйтиИзАккаунтаToolStripMenuItem.Text = "Выйти из аккаунта";
+            this.выйтиИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.выйтиИзАккаунтаToolStripMenuItem_Click);
             // 
             // закрытьToolStripMenuItem
             // 
             this.закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
             this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.закрытьToolStripMenuItem.Text = "Закрыть";
+            this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -98,6 +100,7 @@
             this.linkRegister.TabIndex = 0;
             this.linkRegister.TabStop = true;
             this.linkRegister.Text = "Новый аккант";
+            this.linkRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRegister_LinkClicked);
             // 
             // labPhone
             // 
@@ -140,6 +143,7 @@
             this.chkRemember.TabIndex = 5;
             this.chkRemember.Text = "Запомнить меня";
             this.chkRemember.UseVisualStyleBackColor = true;
+            this.chkRemember.CheckedChanged += new System.EventHandler(this.chkRemember_CheckedChanged);
             // 
             // butSignIn
             // 
@@ -149,6 +153,7 @@
             this.butSignIn.TabIndex = 6;
             this.butSignIn.Text = "Войти";
             this.butSignIn.UseVisualStyleBackColor = true;
+            this.butSignIn.Click += new System.EventHandler(this.butSignIn_Click);
             // 
             // Messanger
             // 
@@ -157,9 +162,12 @@
             this.ClientSize = new System.Drawing.Size(323, 484);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Messanger";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Мессенджер";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

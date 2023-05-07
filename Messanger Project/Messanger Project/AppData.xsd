@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Accaunts" msprop:Generator_RowEvHandlerName="AccauntsRowChangeEventHandler" msprop:Generator_RowDeletedName="AccauntsRowDeleted" msprop:Generator_RowDeletingName="AccauntsRowDeleting" msprop:Generator_RowEvArgName="AccauntsRowChangeEvent" msprop:Generator_TablePropName="Accaunts" msprop:Generator_RowChangedName="AccauntsRowChanged" msprop:Generator_RowChangingName="AccauntsRowChanging" msprop:Generator_TableClassName="AccauntsDataTable" msprop:Generator_RowClassName="AccauntsRow" msprop:Generator_TableVarName="tableAccaunts" msprop:Generator_UserTableName="Accaunts">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AccountId" msprop:Generator_ColumnPropNameInRow="AccountId" msprop:Generator_ColumnPropNameInTable="AccountIdColumn" msprop:Generator_ColumnVarNameInTable="columnAccountId" msprop:Generator_UserColumnName="AccountId" type="xs:string" />
+              <xs:element name="FullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_UserColumnName="FullName" type="xs:string" minOccurs="0" />
+              <xs:element name="Password" msprop:Generator_ColumnPropNameInRow="Password" msprop:Generator_ColumnPropNameInTable="PasswordColumn" msprop:Generator_ColumnVarNameInTable="columnPassword" msprop:Generator_UserColumnName="Password" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Users" msprop:Generator_RowEvHandlerName="UsersRowChangeEventHandler" msprop:Generator_RowDeletedName="UsersRowDeleted" msprop:Generator_RowDeletingName="UsersRowDeleting" msprop:Generator_RowEvArgName="UsersRowChangeEvent" msprop:Generator_TablePropName="Users" msprop:Generator_RowChangedName="UsersRowChanged" msprop:Generator_RowChangingName="UsersRowChanging" msprop:Generator_TableClassName="UsersDataTable" msprop:Generator_RowClassName="UsersRow" msprop:Generator_TableVarName="tableUsers" msprop:Generator_UserTableName="Users">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserId" msprop:Generator_ColumnPropNameInRow="UserId" msprop:Generator_ColumnPropNameInTable="UserIdColumn" msprop:Generator_ColumnVarNameInTable="columnUserId" msprop:Generator_UserColumnName="UserId" type="xs:string" />
+              <xs:element name="AccountId" msprop:Generator_ColumnPropNameInRow="AccountId" msprop:Generator_ColumnPropNameInTable="AccountIdColumn" msprop:Generator_ColumnVarNameInTable="columnAccountId" msprop:Generator_UserColumnName="AccountId" type="xs:string" minOccurs="0" />
+              <xs:element name="FullName" msprop:Generator_ColumnPropNameInRow="FullName" msprop:Generator_ColumnPropNameInTable="FullNameColumn" msprop:Generator_ColumnVarNameInTable="columnFullName" msprop:Generator_UserColumnName="FullName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Accaunts" />
+      <xs:field xpath="mstns:AccountId" />
+    </xs:unique>
+    <xs:unique name="Users_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Users" />
+      <xs:field xpath="mstns:UserId" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="Accaunts_Users" msdata:parent="Accaunts" msdata:child="Users" msdata:parentkey="AccountId" msdata:childkey="AccountId" msprop:Generator_UserParentTable="Accaunts" msprop:Generator_UserChildTable="Users" msprop:Generator_RelationVarName="relationAccaunts_Users" msprop:Generator_ChildPropName="GetUsersRows" msprop:Generator_ParentPropName="AccauntsRow" msprop:Generator_UserRelationName="Accaunts_Users" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
