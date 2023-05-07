@@ -82,6 +82,7 @@
             this.butReg.TabIndex = 4;
             this.butReg.Text = "Зарегистрироваться";
             this.butReg.UseVisualStyleBackColor = true;
+            this.butReg.Click += new System.EventHandler(this.butReg_Click);
             // 
             // grbRegister
             // 
@@ -125,6 +126,7 @@
             this.butConfirm.TabIndex = 4;
             this.butConfirm.Text = "Подтвердить";
             this.butConfirm.UseVisualStyleBackColor = true;
+            this.butConfirm.Click += new System.EventHandler(this.butConfirm_Click);
             // 
             // label3
             // 

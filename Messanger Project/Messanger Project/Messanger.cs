@@ -13,6 +13,7 @@ namespace Messanger_Project
 {
     public partial class Messanger : Form
     {
+        WhatsApp wa;
         public Messanger()
         {
             InitializeComponent();
@@ -37,12 +38,22 @@ namespace Messanger_Project
 
         private void chkRemember_CheckedChanged(object sender, EventArgs e)
         {
-
+            Properties.Settings.Default.Remember = chkRemember.Checked;
+            Properties.Settings.Default.PhoneNumber = txtbPhone.Text;
+            Properties.Settings.Default.Password = txtbPassword.Text;
+            Properties.Settings.Default.Save();
         }
 
         private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            using(Registration_Form frm = new Registration_Form())
+            {
+                if(frm.ShowDialog() == DialogResult.OK)
+                {
+                    txtbPhone.Text = Properties.Settings.Default.PhoneNumber;
+                    txtbPassword.Text = Properties.Settings.Default.Password;
+                }
+            }
         }
 
         private void closeToolStripItem_Click(object sender, EventArgs e)
