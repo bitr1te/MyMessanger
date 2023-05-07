@@ -30,18 +30,18 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.мессенджерToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.выйтиИзАккаунтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.закрытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.signoutToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeToolStripItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.signinPanel = new System.Windows.Forms.Panel();
             this.linkRegister = new System.Windows.Forms.LinkLabel();
             this.labPhone = new System.Windows.Forms.Label();
             this.txtbPhone = new System.Windows.Forms.TextBox();
-            this.txtBoxPassword = new System.Windows.Forms.TextBox();
+            this.txtbPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.chkRemember = new System.Windows.Forms.CheckBox();
             this.butSignIn = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.signinPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -57,39 +57,39 @@
             // мессенджерToolStripMenuItem
             // 
             this.мессенджерToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.выйтиИзАккаунтаToolStripMenuItem,
-            this.закрытьToolStripMenuItem});
+            this.signoutToolStripItem,
+            this.closeToolStripItem});
             this.мессенджерToolStripMenuItem.Name = "мессенджерToolStripMenuItem";
             this.мессенджерToolStripMenuItem.Size = new System.Drawing.Size(89, 20);
             this.мессенджерToolStripMenuItem.Text = "Мессенджер";
             // 
-            // выйтиИзАккаунтаToolStripMenuItem
+            // signoutToolStripItem
             // 
-            this.выйтиИзАккаунтаToolStripMenuItem.Name = "выйтиИзАккаунтаToolStripMenuItem";
-            this.выйтиИзАккаунтаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.выйтиИзАккаунтаToolStripMenuItem.Text = "Выйти из аккаунта";
-            this.выйтиИзАккаунтаToolStripMenuItem.Click += new System.EventHandler(this.выйтиИзАккаунтаToolStripMenuItem_Click);
+            this.signoutToolStripItem.Name = "signoutToolStripItem";
+            this.signoutToolStripItem.Size = new System.Drawing.Size(180, 22);
+            this.signoutToolStripItem.Text = "Выйти из аккаунта";
+            this.signoutToolStripItem.Click += new System.EventHandler(this.signoutToolStripItem_Click);
             // 
-            // закрытьToolStripMenuItem
+            // closeToolStripItem
             // 
-            this.закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
-            this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.закрытьToolStripMenuItem.Text = "Закрыть";
-            this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
+            this.closeToolStripItem.Name = "closeToolStripItem";
+            this.closeToolStripItem.Size = new System.Drawing.Size(180, 22);
+            this.closeToolStripItem.Text = "Закрыть";
+            this.closeToolStripItem.Click += new System.EventHandler(this.closeToolStripItem_Click);
             // 
-            // panel1
+            // signinPanel
             // 
-            this.panel1.Controls.Add(this.butSignIn);
-            this.panel1.Controls.Add(this.chkRemember);
-            this.panel1.Controls.Add(this.txtBoxPassword);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtbPhone);
-            this.panel1.Controls.Add(this.labPhone);
-            this.panel1.Controls.Add(this.linkRegister);
-            this.panel1.Location = new System.Drawing.Point(12, 27);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(299, 445);
-            this.panel1.TabIndex = 1;
+            this.signinPanel.Controls.Add(this.butSignIn);
+            this.signinPanel.Controls.Add(this.chkRemember);
+            this.signinPanel.Controls.Add(this.txtbPassword);
+            this.signinPanel.Controls.Add(this.label2);
+            this.signinPanel.Controls.Add(this.txtbPhone);
+            this.signinPanel.Controls.Add(this.labPhone);
+            this.signinPanel.Controls.Add(this.linkRegister);
+            this.signinPanel.Location = new System.Drawing.Point(12, 27);
+            this.signinPanel.Name = "signinPanel";
+            this.signinPanel.Size = new System.Drawing.Size(299, 445);
+            this.signinPanel.TabIndex = 1;
             // 
             // linkRegister
             // 
@@ -118,12 +118,12 @@
             this.txtbPhone.Size = new System.Drawing.Size(152, 20);
             this.txtbPhone.TabIndex = 2;
             // 
-            // txtBoxPassword
+            // txtbPassword
             // 
-            this.txtBoxPassword.Location = new System.Drawing.Point(65, 182);
-            this.txtBoxPassword.Name = "txtBoxPassword";
-            this.txtBoxPassword.Size = new System.Drawing.Size(152, 20);
-            this.txtBoxPassword.TabIndex = 4;
+            this.txtbPassword.Location = new System.Drawing.Point(65, 182);
+            this.txtbPassword.Name = "txtbPassword";
+            this.txtbPassword.Size = new System.Drawing.Size(152, 20);
+            this.txtbPassword.TabIndex = 4;
             // 
             // label2
             // 
@@ -160,7 +160,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(323, 484);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.signinPanel);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
@@ -171,8 +171,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.signinPanel.ResumeLayout(false);
+            this.signinPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -182,12 +182,12 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem мессенджерToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem выйтиИзАккаунтаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem закрытьToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ToolStripMenuItem signoutToolStripItem;
+        private System.Windows.Forms.ToolStripMenuItem closeToolStripItem;
+        private System.Windows.Forms.Panel signinPanel;
         private System.Windows.Forms.Button butSignIn;
         private System.Windows.Forms.CheckBox chkRemember;
-        private System.Windows.Forms.TextBox txtBoxPassword;
+        private System.Windows.Forms.TextBox txtbPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtbPhone;
         private System.Windows.Forms.Label labPhone;
