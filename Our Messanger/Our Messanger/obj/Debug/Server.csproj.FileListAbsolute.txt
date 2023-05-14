@@ -1,0 +1,11 @@
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\bin\Debug\Our Messanger.exe.config
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\bin\Debug\Our Messanger.exe
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\bin\Debug\Our Messanger.pdb
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\obj\Debug\Server.csproj.AssemblyReference.cache
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\obj\Debug\Server.csproj.SuggestedBindingRedirects.cache
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\obj\Debug\Our_Messanger.ServerForm.resources
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\obj\Debug\Our_Messanger.Properties.Resources.resources
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\obj\Debug\Server.csproj.GenerateResource.cache
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\obj\Debug\Server.csproj.CoreCompileInputs.cache
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\obj\Debug\Our Messanger.exe
+C:\Users\glf12\source\repos\team-1111\Our Messanger\Our Messanger\obj\Debug\Our Messanger.pdb

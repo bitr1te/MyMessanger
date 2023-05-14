@@ -13,17 +13,15 @@ namespace Our_Messanger
     internal class MessServer
     {
         private bool run = true;
-        private IPAddress ip = null;
-        private int port = 0000;
+        private int port = 8080;
         private TcpListener server = null;
 
-        public MessServer(bool run, string adress, int port)
+        public MessServer(bool run, int port)
         {
             try
             {
                 this.run = run;
-                this.ip = IPAddress.Parse(adress);
-                this.server = new TcpListener(ip, port);
+                this.server = new TcpListener(IPAddress.Any, port);
             }
             catch 
             {
@@ -40,16 +38,11 @@ namespace Our_Messanger
                 server.Stop();
         }
 
-        public void SetIp(string ip)
-        {
-            this.ip = IPAddress.Parse (ip);
-            server = new TcpListener(this.ip, port);
-        }
-
         public void SetPort(int port)
         {
+            run = false;
             this.port = port;
-            server = new TcpListener(ip, this.port);
+            server = new TcpListener(IPAddress.Any, this.port);
         }
 
         public void Start() 
@@ -99,8 +92,9 @@ namespace Our_Messanger
                         client.Close();
                     }
                 }
-                catch
+                catch(Exception ex)
                 {
+                    MessageBox.Show(ex.Message);
                     server.Stop();
                     break;
                 }
