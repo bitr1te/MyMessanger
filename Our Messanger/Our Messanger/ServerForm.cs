@@ -23,6 +23,7 @@ namespace Our_Messanger
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            txtConsole.Text += "Welcome";
             btnStop.Enabled = false;
         }
 
@@ -30,6 +31,7 @@ namespace Our_Messanger
         {
             server = new MessServer(true, Convert.ToInt32(txtboxPort.Text));
             server.Start();
+            txtConsole.Text += "\nСервер запущен";
 
             btnStart.Enabled = false;
             btnStop.Enabled = true;
@@ -38,6 +40,7 @@ namespace Our_Messanger
         private void btnStop_Click(object sender, EventArgs e)
         {
             server.Stop();
+            txtConsole.Text += "\nСервер остановлен";
 
             btnStart.Enabled = true;
             btnStop.Enabled = false;

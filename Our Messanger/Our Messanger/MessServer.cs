@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Our_Messanger
 {
-    internal class MessServer
+    public class MessServer
     {
         private bool run = true;
         private int port = 8080;
