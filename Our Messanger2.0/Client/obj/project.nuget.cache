@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AGhmL+RTrZ/yBZ3lFZIhivdz/027AjKdKpXEEHLV8BRIsPoQwhsN2BNEshixsoXgopL7kGdhHUZxbaqpGbHFUw==",
+  "dgSpecHash": "qrVhZ2+ewg6sFttak7tzM1J4EnVKUh+zvkP8+K+61KiAyYUaSV9Jlh9rgpdW6f6hH3I/xv2m2s1X2ABACHVYpA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\glf12\\source\\repos\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
+  "projectFilePath": "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\glf12\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.0\\communitytoolkit.mvvm.8.2.0.nupkg.sha512",
     "C:\\Users\\glf12\\.nuget\\packages\\devexpressmvvm\\22.1.3\\devexpressmvvm.22.1.3.nupkg.sha512",

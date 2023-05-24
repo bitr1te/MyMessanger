@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\glf12\\source\\repos\\team-1111\\Our Messanger2.0\\Server\\Server.csproj": {}
+    "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Server\\Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\glf12\\source\\repos\\team-1111\\Our Messanger2.0\\Server\\Server.csproj": {
+    "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Server\\Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\glf12\\source\\repos\\team-1111\\Our Messanger2.0\\Server\\Server.csproj",
+        "projectUniqueName": "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Server\\Server.csproj",
         "projectName": "Server",
-        "projectPath": "C:\\Users\\glf12\\source\\repos\\team-1111\\Our Messanger2.0\\Server\\Server.csproj",
+        "projectPath": "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Server\\Server.csproj",
         "packagesPath": "C:\\Users\\glf12\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\glf12\\source\\repos\\team-1111\\Our Messanger2.0\\Server\\obj\\",
+        "outputPath": "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
