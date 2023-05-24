@@ -92,6 +92,7 @@
             this.txtConsole.Size = new System.Drawing.Size(391, 178);
             this.txtConsole.TabIndex = 7;
             this.txtConsole.Text = "";
+            this.txtConsole.TextChanged += new System.EventHandler(this.txtConsole_TextChanged);
             // 
             // ServerForm
             // 

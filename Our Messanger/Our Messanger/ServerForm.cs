@@ -45,5 +45,15 @@ namespace Our_Messanger
             btnStart.Enabled = true;
             btnStop.Enabled = false;
         }
+
+        public void WriteConsole(string text)
+        {
+            txtConsole.Text += "\n" + text;
+        }
+
+        private void txtConsole_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

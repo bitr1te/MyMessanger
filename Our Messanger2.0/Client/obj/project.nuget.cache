@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "AGhmL+RTrZ/yBZ3lFZIhivdz/027AjKdKpXEEHLV8BRIsPoQwhsN2BNEshixsoXgopL7kGdhHUZxbaqpGbHFUw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\glf12\\source\\repos\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\glf12\\.nuget\\packages\\communitytoolkit.mvvm\\8.2.0\\communitytoolkit.mvvm.8.2.0.nupkg.sha512",
+    "C:\\Users\\glf12\\.nuget\\packages\\devexpressmvvm\\22.1.3\\devexpressmvvm.22.1.3.nupkg.sha512",
+    "C:\\Users\\glf12\\.nuget\\packages\\refractored.mvvmhelpers\\1.6.2\\refractored.mvvmhelpers.1.6.2.nupkg.sha512",
+    "C:\\Users\\glf12\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
