@@ -17,11 +17,16 @@ namespace Client
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
     /// </summary>
-    public partial class Window1 : Window
+    public partial class Registration : Window
     {
-        public Window1()
+        public Registration()
         {
             InitializeComponent();
+        }
+
+        private void TextBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

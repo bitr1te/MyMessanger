@@ -1,4 +1,4 @@
-﻿<Window x:Class="Client.Window1"
+﻿<Window x:Class="Client.Registration"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -23,6 +23,43 @@
         </Style>
     </Window.Resources>
     <Grid>
-        
+        <Grid RenderTransformOrigin="0.518,0.494">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Регистрация:"
+                       Grid.Column="1"
+                       Grid.Row="1" FontFamily="Constantia" FontSize="24" Margin="3,0,3,0"/>
+            <TextBlock Text="Логин"
+                       Grid.Row="1"
+                       Height="16" 
+                       Margin="66,41,231,152" FontFamily="Constantia" FontSize="16" Grid.ColumnSpan="2"/>
+            <TextBox Grid.Row="1"
+                     Grid.Column="1"
+                     TextAlignment="Left"
+                     
+                     IsReadOnly="True"
+                     IsReadOnlyCaretVisible="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,42,0,0" Width="184" Height="27" FontSize="19" FontFamily="Constantia" TextWrapping="Wrap"/>
+            <TextBlock Text="Пароль"
+                       Grid.Row="1" 
+                       Margin="66,93,221,100" FontFamily="Constantia" FontSize="16" Grid.ColumnSpan="2"/>
+            <TextBox Grid.Row="1"
+                     Grid.Column="1"
+                     TextAlignment="Left"
+                     
+                     IsReadOnly="True"
+                     IsReadOnlyCaretVisible="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,90,0,0" Width="184" Height="27" FontSize="19" FontFamily="Constantia" TextWrapping="Wrap" RenderTransformOrigin="0.421,0.413" InputScope="Srgs"/>
+            <Button
+                Grid.Column="1"
+                Grid.Row="1"
+                Content="Зарегистрироваться" Margin="20,100,0,0" Width="190" Height="30" FontFamily="Constantia" FontSize="16"/>
+        </Grid>
     </Grid>
 </Window>
