@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Client\\Client.csproj": {}
+    "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая\\team-1111\\Our Messanger2.0\\Client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Client\\Client.csproj": {
+    "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая\\team-1111\\Our Messanger2.0\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
-        "packagesPath": "C:\\Users\\glf12\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\glf12\\source\\repos\\team-1111\\team-1111\\Our Messanger2.0\\Client\\obj\\",
+        "projectPath": "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
+        "packagesPath": "C:\\Users\\Михаил\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая\\team-1111\\Our Messanger2.0\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\glf12\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Михаил\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[22.1.3, )"
             },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.5, )"
+            },
             "Refractored.MvvmHelpers": {
               "target": "Package",
               "version": "[1.6.2, )"
@@ -76,7 +80,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
