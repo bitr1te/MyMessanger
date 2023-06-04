@@ -68,7 +68,7 @@
             <TextBox Name="Password"
                      Grid.Row="1"
                      Grid.Column="1"
-                     TextAlignment="Left"
+                     TextAlignment="Left" 
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
                      Margin="70,90,0,0"
