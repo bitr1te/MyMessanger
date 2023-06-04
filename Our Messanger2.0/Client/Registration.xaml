@@ -36,30 +36,59 @@
             </Grid.ColumnDefinitions>
             <TextBlock Text="Регистрация:"
                        Grid.Column="1"
-                       Grid.Row="1" FontFamily="Constantia" FontSize="24" Margin="3,0,3,0"/>
+                       Grid.Row="1"
+                       FontFamily="Constantia"
+                       FontSize="24"
+                       Margin="3,0,3,0"/>
             <TextBlock Text="Логин"
                        Grid.Row="1"
                        Height="16" 
-                       Margin="66,41,231,152" FontFamily="Constantia" FontSize="16" Grid.ColumnSpan="2"/>
-            <TextBox Grid.Row="1"
+                       Margin="66,41,231,152"
+                       FontFamily="Constantia"
+                       FontSize="16"
+                       Grid.ColumnSpan="2"/>
+            <TextBox Name="Login"
+                     Grid.Row="1"
                      Grid.Column="1"
                      TextAlignment="Left"
-                     
-                     IsReadOnly="True"
-                     IsReadOnlyCaretVisible="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,42,0,0" Width="184" Height="27" FontSize="19" FontFamily="Constantia" TextWrapping="Wrap"/>
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     Margin="70,42,0,0"
+                     Width="184"
+                     Height="27"
+                     FontSize="19"
+                     FontFamily="Constantia"
+                     TextWrapping="Wrap"/>
             <TextBlock Text="Пароль"
                        Grid.Row="1" 
-                       Margin="66,93,221,100" FontFamily="Constantia" FontSize="16" Grid.ColumnSpan="2"/>
-            <TextBox Grid.Row="1"
+                       Margin="66,93,221,100"
+                       FontFamily="Constantia"
+                       FontSize="16"
+                       Grid.ColumnSpan="2"/>
+            <TextBox Name="Password"
+                     Grid.Row="1"
                      Grid.Column="1"
                      TextAlignment="Left"
-                     
-                     IsReadOnly="True"
-                     IsReadOnlyCaretVisible="True" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,90,0,0" Width="184" Height="27" FontSize="19" FontFamily="Constantia" TextWrapping="Wrap" RenderTransformOrigin="0.421,0.413" InputScope="Srgs"/>
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     Margin="70,90,0,0"
+                     Width="184"
+                     Height="27"
+                     FontSize="19"
+                     FontFamily="Constantia"
+                     TextWrapping="Wrap"
+                     RenderTransformOrigin="0.421,0.413"
+                     InputScope="Srgs"/>
             <Button
                 Grid.Column="1"
                 Grid.Row="1"
-                Content="Зарегистрироваться" Margin="20,100,0,0" Width="190" Height="30" FontFamily="Constantia" FontSize="16"/>
+                Content="Зарегистрироваться"
+                Margin="20,100,0,0"
+                Width="190"
+                Height="30"
+                FontFamily="Constantia"
+                FontSize="16"
+                Click="Button_Click"/>
         </Grid>
     </Grid>
 </Window>

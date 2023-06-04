@@ -21,6 +21,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.Windows.Markup;
 using System.Windows.Controls.Primitives;
+using System.Threading.Channels;
 
 namespace Client
 {
@@ -58,10 +59,14 @@ namespace Client
                         MessageBox.Show("Login and password exist in the database.");
                         MainWindow mainWindow = new MainWindow();
                         mainWindow.Show();
+                        Window.GetWindow(this).Close();
                     }
                     else
                     {
-                        MessageBox.Show("Login and password do not exist in the database.");
+                        MessageBox.Show("Login and password do not exist in the database. Register before work!");
+                        Registration registrationWindow = new Registration();
+                        registrationWindow.Show();
+                        Window.GetWindow(this).Close();
                     }
                 }
             }
