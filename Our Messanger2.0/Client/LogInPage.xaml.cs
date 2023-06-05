@@ -28,7 +28,7 @@ namespace Client
     /// <summary>
     /// Логика взаимодействия для LogInPage.xaml
     /// </summary>
-    public partial class LogInPage : Page
+    public partial class LogInPage : Window
     {
 
         public LogInPage()
