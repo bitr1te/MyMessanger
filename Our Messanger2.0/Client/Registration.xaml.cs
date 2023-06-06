@@ -36,15 +36,17 @@ namespace Client
 
             string login = Login.Text;
             string password = Password.Text;
+            string username = UserName.Text;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Users (Login, Password) VALUES (@Login, @Password)";
+                string query = "INSERT INTO Users (Login, Password) VALUES (@Login, @Password, @Name)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Login", login);
                     command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@Name", username);
 
                     int rowsAffected = command.ExecuteNonQuery();
 

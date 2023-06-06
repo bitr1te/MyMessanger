@@ -87,5 +87,11 @@ namespace Client
                 }
             }
         }
+
+        private void Reg_Click(object sender, RoutedEventArgs e)
+        {
+            Registration registrationWindow = new Registration();
+            registrationWindow.Show();
+        }
     }
 }

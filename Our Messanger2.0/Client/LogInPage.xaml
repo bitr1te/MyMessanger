@@ -5,9 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Client"
       mc:Ignorable="d" 
-      Title="LogInPage" Height="450" Width="400"
+      Title="Вход" Height="450" Width="400"
         Loaded="Window_Loaded"
-      Background="White">
+      Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
@@ -25,9 +25,17 @@
                       Content="Запомнить меня" 
                       BorderThickness="1,1,1,1" 
                       Margin="30,0,0,0"/>
+            
             <Button Height="20"
                     Width="150"
                     Content="Войти"
+                    Margin="10"/>
+            
+            <Button Name="Reg"
+                    Height="20"
+                    Click="Reg_Click"
+                    Width="150"
+                    Content="Регистрация"
                     Margin="10"/>
         </StackPanel>
     </Grid>

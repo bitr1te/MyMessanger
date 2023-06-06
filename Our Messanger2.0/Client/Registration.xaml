@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Title="Registration" Height="450" Width="400">
+        Title="Registration" 
+        Height="450" 
+        Width="400" 
+        ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <local:MessClient/>
     </Window.DataContext>
