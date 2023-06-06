@@ -122,3 +122,14 @@ C:\Users\Михаил\Desktop\ООАиД\Курсовая\team-1111\Our Messange
 C:\Users\Михаил\Desktop\ООАиД\Курсовая\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\ref\Client.dll
 C:\Users\Михаил\Desktop\ООАиД\Курсовая\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\LogInPage.g.cs
 C:\Users\Михаил\Desktop\ООАиД\Курсовая\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\LogInPage.baml
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Client.csproj.AssemblyReference.cache
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\LogInPage.g.cs
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Registration.g.cs
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Client_MarkupCompile.cache
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Client_MarkupCompile.lref
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Client.dll
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\refint\Client.dll
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Client.pdb

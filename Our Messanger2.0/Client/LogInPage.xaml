@@ -8,7 +8,7 @@
       Title="LogInPage" Height="450" Width="400"
       Background="White">
     <Window.DataContext>
-        <local:LogInPage/>
+        <local:Login/>
     </Window.DataContext>
     <Grid>
         <StackPanel VerticalAlignment="Center"
