@@ -81,7 +81,9 @@ namespace Client
                     if (count > 0)
                     {
                         MessageBox.Show("Login and password exist in the database.");
-                        MainWindow mainWindow = new MainWindow();
+
+                        string Nick = "";
+                        MainWindow mainWindow = new MainWindow(Nick);
                         mainWindow.Show();
                     }
                     else

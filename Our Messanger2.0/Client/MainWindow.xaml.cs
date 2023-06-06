@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Mvvm;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,22 @@ namespace Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public string Nick;
+        public MainWindow(string Nick)
         {
             InitializeComponent();
+            this.Nick = Nick;
+            NickBox.Text = Nick;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            MessClient client = new MessClient(Nick);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

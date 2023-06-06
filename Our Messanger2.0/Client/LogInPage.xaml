@@ -8,6 +8,9 @@
       Title="Вход" Height="450" Width="400"
         Loaded="Window_Loaded"
       Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:MessClient/>
+    </Window.DataContext>
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="3"/>
@@ -38,21 +41,33 @@
                        VerticalAlignment="Top"
                        HorizontalAlignment="Center"
                            Grid.Row="2"/>
-        <TextBlock Text="Логин"
-                       Name="TextBlock1"
-                       Grid.Row="2"
-                       Margin="16,31,34,194"/>
         <TextBox Name="Login"
-                     Margin="16,56,34,169"
-                     Grid.Row="2"/>
+                     Margin="108,52,108,170"
+                     Grid.Row="2" FontFamily="Constantia" FontSize="16" TextAlignment="Left"/>
+        <TextBlock Text="Логин"
+                       Grid.Row="2"
+                       Name="TextBlock1"
+                       Margin="116,57,172,0"
+                       IsHitTestVisible="False" VerticalAlignment="Top" Foreground="Gray" FontFamily="Constantia" FontSize="14">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=Login}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
         <TextBox Name="Password"
-                     Margin="16,86,34,139"
-                     Grid.Row="2"/>
+                     Margin="108,86,108,139"
+                     Grid.Row="2" FontFamily="Constantia" FontSize="16" TextAlignment="Left"/>
         <TextBlock Text="Пароль"
                        Grid.Row="2"
                        Name="TextBlock2"
-                       Margin="16,91,34,0"
-                       IsHitTestVisible="False" VerticalAlignment="Top" Foreground="Gray">
+                       Margin="116,90,189,0"
+                       IsHitTestVisible="False" VerticalAlignment="Top" Foreground="Gray" FontFamily="Constantia" FontSize="14">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -69,21 +84,19 @@
                       Checked="Remember_Checked"
                       Content="Запомнить меня" 
                       BorderThickness="1,1,1,1" 
-                      Margin="126,137,144,93"
-                      Grid.Row="2"/>
+                      Margin="126,125,144,105"
+                      Grid.Row="2" FontFamily="Constantia" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
         <Button Height="20"
-                    Width="150"
                     Content="Войти"
-                    Margin="116,172,134,58" Click="Button_Click"
-                    Grid.Row="2"/>
+                    Margin="116,150,119,80" Click="Button_Click"
+                    Grid.Row="2" FontFamily="Constantia" FontSize="12"/>
 
         <Button Name="Reg"
                     Height="20"
                     Click="Reg_Click"
-                    Width="150"
                     Content="Регистрация"
-                    Margin="116,212,134,18"
-                Grid.Row="2"/>
+                    Margin="116,187,119,43"
+                Grid.Row="2" FontFamily="Constantia" FontSize="12"/>
     </Grid>
 </Window>

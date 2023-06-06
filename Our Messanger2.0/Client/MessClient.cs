@@ -9,8 +9,6 @@ namespace Client
 {
     public class MessClient : ViewModelBase
     {
-        public string IP { get; set; } = "127.0.0.1";
-        public int Port { get; set; } = 5050;
         public string Nick { get; set; } = "Nick";
         public string Chat
         {
@@ -28,6 +26,10 @@ namespace Client
         public MessClient()
         {
 
+        }
+        public MessClient(string Nick)
+        {
+            this.Nick = Nick;
         }
 
         private void Listener()
@@ -71,7 +73,7 @@ namespace Client
                         try
                         {
                             _client = new TcpClient();
-                            _client.Connect(IP, Port);
+                            _client.Connect("127.0.0.1", 5050);
                             _reader = new StreamReader(_client.GetStream());
                             _writer = new StreamWriter(_client.GetStream());
                             Listener();

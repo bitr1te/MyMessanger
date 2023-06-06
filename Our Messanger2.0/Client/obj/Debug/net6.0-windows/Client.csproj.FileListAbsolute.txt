@@ -262,3 +262,5 @@ C:\Users\Михаил\Desktop\ООАиД\Курсач\team-1111\Our Messanger2.0
 C:\Users\Михаил\Desktop\ООАиД\Курсач\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\ref\Client.dll
 C:\Users\Михаил\Desktop\ООАиД\Курсач\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Client.Properties.Resources.resources
 C:\Users\Михаил\Desktop\ООАиД\Курсач\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Client.csproj.GenerateResource.cache
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Client.Properties.Resources.resources
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Debug\net6.0-windows\Client.csproj.GenerateResource.cache
