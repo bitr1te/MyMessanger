@@ -36,7 +36,25 @@ namespace Client
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if(Properties.Settings.Default.Remember)
+            {
+                this.Login.Text = Properties.Settings.Default.Login;
+                this.Password.Text = Properties.Settings.Default.Password;
+                this.Remember.IsChecked = Properties.Settings.Default.Remember;
+            }
+        }
+
+        private void Remember_Checked(object sender, RoutedEventArgs e)
+        {
+            Properties.Settings.Default.Login = Login.Text;
+            Properties.Settings.Default.Password = Password.Text;
+            Properties.Settings.Default.Remember = (bool)Remember.IsChecked;
+            Properties.Settings.Default.Save();
+        }
+
+        public void Log(object sender, RoutedEventArgs e)
         {
             string connectionString = "Data Source=MIKHAILPC1;Initial Catalog=OurMessandgerDB;Integrated Security=True;TrustServerCertificate=true;";
 
@@ -59,14 +77,12 @@ namespace Client
                         MessageBox.Show("Login and password exist in the database.");
                         MainWindow mainWindow = new MainWindow();
                         mainWindow.Show();
-                        Window.GetWindow(this).Close();
                     }
                     else
                     {
                         MessageBox.Show("Login and password do not exist in the database. Register before work!");
                         Registration registrationWindow = new Registration();
                         registrationWindow.Show();
-                        Window.GetWindow(this).Close();
                     }
                 }
             }

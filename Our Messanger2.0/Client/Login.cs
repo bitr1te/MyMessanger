@@ -8,9 +8,13 @@ using System.Windows;
 
 namespace Client
 {
-    public class Login
+    public class LogIn
     {
-        public Login()
+        public string Login { get; set; } = "";
+        public string Password { get; set; } = "";
+        public bool Remember { get; set; } = true;
+
+        public LogIn()
         {
 
         }
@@ -18,8 +22,7 @@ namespace Client
         {
             string connectionString = "Data Source=MIKHAILPC1;Initial Catalog=OurMessandgerDB;Integrated Security=True;TrustServerCertificate=true;";
 
-            string login = Login.Text;
-            string password = Password.Text;
+            
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -27,8 +30,8 @@ namespace Client
                 string query = "SELECT COUNT(*) FROM Users WHERE Login = @Login AND Password = @Password";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@Login", login);
-                    command.Parameters.AddWithValue("@Password", password);
+                    command.Parameters.AddWithValue("@Login", Login);
+                    command.Parameters.AddWithValue("@Password", Password);
 
                     int count = (int)command.ExecuteScalar();
 
@@ -37,14 +40,12 @@ namespace Client
                         MessageBox.Show("Login and password exist in the database.");
                         MainWindow mainWindow = new MainWindow();
                         mainWindow.Show();
-                        Window.GetWindow(this).Close();
                     }
                     else
                     {
                         MessageBox.Show("Login and password do not exist in the database. Register before work!");
                         Registration registrationWindow = new Registration();
                         registrationWindow.Show();
-                        Window.GetWindow(this).Close();
                     }
                 }
             }

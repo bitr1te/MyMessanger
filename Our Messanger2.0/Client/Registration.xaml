@@ -22,6 +22,7 @@
             <Setter Property="Margin" Value="3"/>
         </Style>
     </Window.Resources>
+
     <Grid>
         <Grid RenderTransformOrigin="0.518,0.494">
             <Grid.RowDefinitions>
@@ -40,20 +41,39 @@
                        FontFamily="Constantia"
                        FontSize="24"
                        Margin="3,0,3,0"/>
+
+            <TextBlock Text="Ник"
+                       Grid.Row="1"
+                       Height="16" 
+                       Margin="4,45,220,156"
+                       FontFamily="Constantia"
+                       FontSize="16" Grid.Column="1"/>
+            <TextBox Name="UserName"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     TextAlignment="Left"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Top"
+                     Margin="80,42,0,0"
+                     Width="184"
+                     Height="27"
+                     FontSize="19"
+                     FontFamily="Constantia"
+                     TextWrapping="Wrap"/>
+
             <TextBlock Text="Логин"
                        Grid.Row="1"
                        Height="16" 
-                       Margin="66,41,231,152"
+                       Margin="7,88,217,113"
                        FontFamily="Constantia"
-                       FontSize="16"
-                       Grid.ColumnSpan="2"/>
+                       FontSize="16" RenderTransformOrigin="0.533,2.301" Grid.Column="1"/>
             <TextBox Name="Login"
                      Grid.Row="1"
                      Grid.Column="1"
                      TextAlignment="Left"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
-                     Margin="70,42,0,0"
+                     Margin="80,85,0,0"
                      Width="184"
                      Height="27"
                      FontSize="19"
@@ -61,17 +81,16 @@
                      TextWrapping="Wrap"/>
             <TextBlock Text="Пароль"
                        Grid.Row="1" 
-                       Margin="66,93,221,100"
+                       Margin="10,134,220,59"
                        FontFamily="Constantia"
-                       FontSize="16"
-                       Grid.ColumnSpan="2"/>
+                       FontSize="16" RenderTransformOrigin="0.549,1.954" Grid.Column="1"/>
             <TextBox Name="Password"
                      Grid.Row="1"
                      Grid.Column="1"
                      TextAlignment="Left" 
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
-                     Margin="70,90,0,0"
+                     Margin="80,133,0,0"
                      Width="184"
                      Height="27"
                      FontSize="19"
@@ -83,7 +102,7 @@
                 Grid.Column="1"
                 Grid.Row="1"
                 Content="Зарегистрироваться"
-                Margin="20,100,0,0"
+                Margin="48,177,48,10"
                 Width="190"
                 Height="30"
                 FontFamily="Constantia"

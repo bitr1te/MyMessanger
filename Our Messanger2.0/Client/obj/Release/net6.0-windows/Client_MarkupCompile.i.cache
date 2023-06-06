@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\glf12\source\repos\team-1111\Our Messanger2.0\Client\obj\Release\net6.0-windows\
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\obj\Release\net6.0-windows\
 Client
 none
 false
 TRACE;RELEASE;NET;NET6_0;NETCOREAPP
-C:\Users\glf12\source\repos\team-1111\Our Messanger2.0\Client\App.xaml
-11407045341
+C:\Users\Димас\source\repos\team-1111\Our Messanger2.0\Client\App.xaml
+32010685527
 
-6618460110
-198-801847676
-MainWindow.xaml;
+91990127146
+226-1647638884
+LogInPage.xaml;MainWindow.xaml;Registration.xaml;
 
-False
+True
 

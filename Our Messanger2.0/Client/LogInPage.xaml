@@ -6,10 +6,8 @@
       xmlns:local="clr-namespace:Client"
       mc:Ignorable="d" 
       Title="LogInPage" Height="450" Width="400"
+        Loaded="Window_Loaded"
       Background="White">
-    <Window.DataContext>
-        <local:Login/>
-    </Window.DataContext>
     <Grid>
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
@@ -22,12 +20,15 @@
                        Name="TextBlock2"/>
             <TextBox Name="Password"
                      Margin="10"/>
-            
+            <CheckBox Name="Remember"
+                      Checked="Remember_Checked"
+                      Content="Запомнить меня" 
+                      BorderThickness="1,1,1,1" 
+                      Margin="30,0,0,0"/>
             <Button Height="20"
                     Width="150"
                     Content="Войти"
-                     Margin="10"
-                    Click="Button_Click"/>
+                    Margin="10"/>
         </StackPanel>
     </Grid>
 </Window>
