@@ -54,7 +54,13 @@ namespace Client
             Properties.Settings.Default.Save();
         }
 
-        public void Log(object sender, RoutedEventArgs e)
+        private void Reg_Click(object sender, RoutedEventArgs e)
+        {
+            Registration registrationWindow = new Registration();
+            registrationWindow.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             string connectionString = "Data Source=MIKHAILPC1;Initial Catalog=OurMessandgerDB;Integrated Security=True;TrustServerCertificate=true;";
 
@@ -86,12 +92,6 @@ namespace Client
                     }
                 }
             }
-        }
-
-        private void Reg_Click(object sender, RoutedEventArgs e)
-        {
-            Registration registrationWindow = new Registration();
-            registrationWindow.Show();
         }
     }
 }

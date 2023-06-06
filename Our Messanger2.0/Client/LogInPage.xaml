@@ -8,35 +8,82 @@
       Title="Вход" Height="450" Width="400"
         Loaded="Window_Loaded"
       Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="3"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
 
-            <TextBlock Text="Логин"
-                       Name="TextBlock1"/>
-            <TextBox Name="Login"
-                     Margin="10"/>
-            <TextBlock Text="Пароль"
-                       Name="TextBlock2"/>
-            <TextBox Name="Password"
-                     Margin="10"/>
-            <CheckBox Name="Remember"
+
+        <TextBlock Text="Вход:"
+                       Name="TextBlock3"
+                       FontFamily="Constantia"
+                       FontSize="24"
+                       Margin="3,0,3,0"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                           Grid.Row="2"/>
+        <TextBlock Text="Логин"
+                       Name="TextBlock1"
+                       Grid.Row="2"
+                       Margin="16,31,34,194"/>
+        <TextBox Name="Login"
+                     Margin="16,56,34,169"
+                     Grid.Row="2"/>
+        <TextBox Name="Password"
+                     Margin="16,86,34,139"
+                     Grid.Row="2"/>
+        <TextBlock Text="Пароль"
+                       Grid.Row="2"
+                       Name="TextBlock2"
+                       Margin="16,91,34,0"
+                       IsHitTestVisible="False" VerticalAlignment="Top" Foreground="Gray">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=Password}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+
+        <CheckBox Name="Remember"
                       Checked="Remember_Checked"
                       Content="Запомнить меня" 
                       BorderThickness="1,1,1,1" 
-                      Margin="30,0,0,0"/>
-            
-            <Button Height="20"
+                      Margin="126,137,144,93"
+                      Grid.Row="2"/>
+
+        <Button Height="20"
                     Width="150"
                     Content="Войти"
-                    Margin="10"/>
-            
-            <Button Name="Reg"
+                    Margin="116,172,134,58" Click="Button_Click"
+                    Grid.Row="2"/>
+
+        <Button Name="Reg"
                     Height="20"
                     Click="Reg_Click"
                     Width="150"
                     Content="Регистрация"
-                    Margin="10"/>
-        </StackPanel>
+                    Margin="116,212,134,18"
+                Grid.Row="2"/>
     </Grid>
 </Window>

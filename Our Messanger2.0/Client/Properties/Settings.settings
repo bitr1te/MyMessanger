@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="Login" Type="System.String" Scope="User">
-      <Value Profile="(Default)">г65</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">г56г5</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Remember" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>

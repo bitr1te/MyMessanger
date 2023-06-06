@@ -41,7 +41,7 @@ namespace Client
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Users (Login, Password) VALUES (@Login, @Password, @Name)";
+                string query = "INSERT INTO Users (Name, Login, Password) VALUES (@Login, @Password, @Name)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Login", login);
