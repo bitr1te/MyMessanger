@@ -50,6 +50,7 @@ namespace Client
         {
             Registration registrationWindow = new Registration();
             registrationWindow.Show();
+            Hide();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -87,8 +88,18 @@ namespace Client
                     if (count > 0)
                     {
                         string Nick = "";
+                        string query1 = "SELECT Nick FROM Users WHERE Login = @Login AND Password = @Password";
+                        using (SqlCommand command1 = new SqlCommand(query1, connection))
+                        {
+                            command.Parameters.AddWithValue("@Login", login);
+                            command.Parameters.AddWithValue("@Password", password);
+                            object result = command1.ExecuteScalar();
+
+                            Name = result.ToString();
+                        }
                         MainWindow mainWindow = new MainWindow(Nick);
                         mainWindow.Show();
+                        Hide();
                     }
                     else
                     {

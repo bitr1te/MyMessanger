@@ -137,6 +137,15 @@
                 FontFamily="Constantia"
                 FontSize="14"
                 Click="Button_Click"/>
+            <Button Content="Вернуться к авторизации" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,200,0,0" Grid.Row="1" 
+                    VerticalAlignment="Top" 
+                    Width="162" 
+                    Height="18" 
+                    FontFamily="Constantia" 
+                    FontSize="12"
+                    Click="Button_Auth_Click"/>
         </Grid>
     </Grid>
 </Window>
