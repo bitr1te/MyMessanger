@@ -81,7 +81,6 @@
         </TextBlock>
 
         <CheckBox Name="Remember"
-                      Checked="Remember_Checked"
                       Content="Запомнить меня" 
                       BorderThickness="1,1,1,1" 
                       Margin="126,125,144,105"

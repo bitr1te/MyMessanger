@@ -7,9 +7,6 @@
         mc:Ignorable="d"
         Loaded="Window_Loaded"
         Title="Messanger" Height="450" Width="800">
-    <Window.DataContext>
-        <local:MessClient/>
-    </Window.DataContext>
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="3"/>
@@ -31,18 +28,12 @@
         </Grid.RowDefinitions>
         <StackPanel>
             <UniformGrid Columns="4">
-                <TextBlock Text="Nick"/>
             </UniformGrid>
             <UniformGrid Columns="4">
-                <TextBox Name="NickBox"
-                         Text="{Binding Nick}"/>
-                <Button Click="Button_Click"
-                    Command="{Binding ConnectCommand}" Content="Подключиться"/>
             </UniformGrid>
         </StackPanel>
 
         <TextBox Grid.Row="1"
-                 Text="{Binding Chat}"
                  TextAlignment="Left"
                  IsReadOnly="True"
                  IsReadOnlyCaretVisible="True"/>
@@ -56,19 +47,20 @@
             </Grid.ColumnDefinitions>
             <TextBlock Text="Ник:"
                        Grid.Column="0"/>
-            <TextBox MaxLines="5"
-                     Text="{Binding Target}"
+            <TextBox Name="Target"
+                     MaxLines="5"
                      TextAlignment="Left"
                      Grid.Column="1"
                      TextWrapping="Wrap" Margin="3,3,3,3"/>
             
             <TextBox MaxLines="5"
-                     Text="{Binding Message}"
+                     Name="Message"
                      TextAlignment="Left"
                      Grid.Column="2"
                      TextWrapping="Wrap" Margin="3,3,3,3"/>
             <Button
                 Grid.Column="3"
+                Click="Button_Send_Click"
                 Command="{Binding SendCommand}"
                 Content="Отправить" Margin="3,3,3,3"/>
         </Grid>

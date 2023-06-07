@@ -10,12 +10,6 @@ namespace Client
     public class MessClient : ViewModelBase
     {
         public string Nick { get; set; } = "Nick";
-        public string Chat
-        {
-            get => GetValue<string>();
-
-            set => SetValue(value);
-        }
         public string Message { get => GetValue<string>(); set => SetValue(value); }
         public string Target { get => GetValue<string>(); set => SetValue(value); }
 
@@ -45,19 +39,18 @@ namespace Client
                             var line = _reader?.ReadLine();
                             if (line != null)
                             {
-                                Chat += line + "\n";
+                                //
                             }
                             else
                             {
                                 _client.Close();
-                                Chat += "Connected error.\n";
                             }
                         }
                         Task.Delay(10).Wait();
                     }
                     catch (Exception ex)
                     {
-                        Chat += ex.Message + "\n";
+                        //
                     }
                 }
             });

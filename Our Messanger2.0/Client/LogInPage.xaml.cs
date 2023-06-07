@@ -46,14 +46,6 @@ namespace Client
             }
         }
 
-        private void Remember_Checked(object sender, RoutedEventArgs e)
-        {
-            Properties.Settings.Default.Login = Login.Text;
-            Properties.Settings.Default.Password = Password.Text;
-            Properties.Settings.Default.Remember = (bool)Remember.IsChecked;
-            Properties.Settings.Default.Save();
-        }
-
         private void Reg_Click(object sender, RoutedEventArgs e)
         {
             Registration registrationWindow = new Registration();
@@ -62,6 +54,20 @@ namespace Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            if((bool)this.Remember.IsChecked)
+            {
+                Properties.Settings.Default.Login = Login.Text;
+                Properties.Settings.Default.Password = Password.Text;
+                Properties.Settings.Default.Remember = (bool)Remember.IsChecked;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.Login = "";
+                Properties.Settings.Default.Password = "";
+                Properties.Settings.Default.Remember = false;
+                Properties.Settings.Default.Save();
+            }
             string connectionString = "Data Source=MIKHAILPC1;Initial Catalog=OurMessandgerDB;Integrated Security=True;TrustServerCertificate=true;";
 
             string login = Login.Text;
@@ -80,17 +86,13 @@ namespace Client
 
                     if (count > 0)
                     {
-                        MessageBox.Show("Login and password exist in the database.");
-
                         string Nick = "";
                         MainWindow mainWindow = new MainWindow(Nick);
                         mainWindow.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Login and password do not exist in the database. Register before work!");
-                        Registration registrationWindow = new Registration();
-                        registrationWindow.Show();
+                        MessageBox.Show("Неверный логин или пароль!");
                     }
                 }
             }
