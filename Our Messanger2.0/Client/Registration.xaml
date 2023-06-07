@@ -9,7 +9,8 @@
         Height="450" 
         Width="400" 
         ResizeMode="NoResize" 
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Background="#CEA1A6">
     <Window.DataContext>
         <local:MessClient/>
     </Window.DataContext>
@@ -30,18 +31,20 @@
     <Grid>
         <Grid RenderTransformOrigin="0.518,0.494">
             <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="6*"/>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="55"/>
+                <RowDefinition Height="250"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="Регистрация:"
+            <TextBlock Text="Sign in"
                        Grid.Column="1"
-                       Grid.Row="1"
+                       Grid.Row="2"
                        FontFamily="Constantia"
-                       FontSize="24"
-                       Margin="3,0,3,0"/>
+                       FontSize="30"
+                       Margin="3,0,3,0"
+                       Foreground="#191919"/>
             <TextBox Name="UserName"
-                     Grid.Row="1"
+                     Grid.Row="2"
                      TextAlignment="Left"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
@@ -50,13 +53,15 @@
                      Height="27"
                      FontSize="19"
                      FontFamily="Constantia"
-                     TextWrapping="Wrap"/>
-            <TextBlock Text="Ник"
-                       Grid.Row="1" 
+                     TextWrapping="Wrap"
+                     Background="#E6CAB4"
+                 Foreground="#191919"/>
+            <TextBlock Text="Nickname"
+                       Grid.Row="2" 
                        Margin="114,46,103,140"
                        FontFamily="Constantia"
                        FontSize="16"
-                       Foreground="Gray"
+                       Foreground="#424242"
                        IsHitTestVisible="False">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
@@ -70,7 +75,7 @@
                 </TextBlock.Style>
             </TextBlock>
             <TextBox Name="Login"
-                     Grid.Row="1"
+                     Grid.Row="2"
                      TextAlignment="Left"
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
@@ -79,13 +84,15 @@
                      Height="27"
                      FontSize="19"
                      FontFamily="Constantia"
-                     TextWrapping="Wrap"/>
-            <TextBlock Text="Логин"
-                       Grid.Row="1" 
+                     TextWrapping="Wrap"
+                     Background="#E6CAB4"
+                 Foreground="#191919"/>
+            <TextBlock Text="Login"
+                       Grid.Row="2" 
                        Margin="114,84,99,102"
                        FontFamily="Constantia"
                        FontSize="16" RenderTransformOrigin="0.533,2.301"
-                       Foreground="Gray"
+                       Foreground="#424242"
                        IsHitTestVisible="False">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
@@ -99,7 +106,7 @@
                 </TextBlock.Style>
             </TextBlock>
             <TextBox Name="Password"
-                     Grid.Row="1"
+                     Grid.Row="2"
                      TextAlignment="Left" 
                      HorizontalAlignment="Left"
                      VerticalAlignment="Top"
@@ -110,13 +117,15 @@
                      FontFamily="Constantia"
                      TextWrapping="Wrap"
                      RenderTransformOrigin="0.421,0.413"
-                     InputScope="Srgs"/>
-            <TextBlock Text="Пароль"
-                       Grid.Row="1" 
+                     InputScope="Srgs"
+                     Background="#E6CAB4"
+                 Foreground="#191919"/>
+            <TextBlock Text="Password"
+                       Grid.Row="2" 
                        Margin="114,124,102,64"
                        FontFamily="Constantia"
                        FontSize="16" RenderTransformOrigin="0.549,1.954"
-                       Foreground="Gray"
+                       Foreground="#424242"
                        IsHitTestVisible="False">
                 <TextBlock.Style>
                     <Style TargetType="{x:Type TextBlock}">
@@ -131,20 +140,24 @@
             </TextBlock>
 
             <Button
-                Grid.Row="1"
-                Content="Зарегистрироваться"
-                Margin="88,160,88,24"
+                Grid.Row="2"
+                Content="Save"
+                Margin="88,160,88,55"
                 FontFamily="Constantia"
-                FontSize="14"
+                FontSize="24"
+                Foreground="#191919"
+                Background="#EDD89F"
                 Click="Button_Click"/>
-            <Button Content="Вернуться к авторизации" 
+            <Button Content="Back to log in" 
                     HorizontalAlignment="Center" 
-                    Margin="0,200,0,0" Grid.Row="1" 
+                    Margin="0,209,0,0" Grid.Row="2" 
                     VerticalAlignment="Top" 
                     Width="162" 
                     Height="18" 
                     FontFamily="Constantia" 
                     FontSize="12"
+                    Foreground="#191919"
+                    Background="#EDD89F"
                     Click="Button_Auth_Click"/>
         </Grid>
     </Grid>

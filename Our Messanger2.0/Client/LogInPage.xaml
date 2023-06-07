@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       Title="Вход" Height="450" Width="400"
         Loaded="Window_Loaded"
-      Background="White" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+      Background="#CEA1A6" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.DataContext>
         <local:MessClient/>
     </Window.DataContext>
@@ -33,22 +33,30 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock Text="Вход:"
+        <TextBlock Text="Log in"
                        Name="TextBlock3"
                        FontFamily="Constantia"
-                       FontSize="24"
+                       FontSize="32"
                        Margin="3,0,3,0"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Center"
+                   Foreground="#191919"
                            Grid.Row="2"/>
         <TextBox Name="Login"
-                     Margin="108,52,108,170"
-                     Grid.Row="2" FontFamily="Constantia" FontSize="16" TextAlignment="Left"/>
-        <TextBlock Text="Логин"
+                     Margin="111,55,105,167"
+                     Grid.Row="2"
+                 FontFamily="Constantia" 
+                 FontSize="16"
+                 TextAlignment="Left"
+                 Background="#E6CAB4"
+                 Foreground="#191919"/>
+        <TextBlock Text="Login"
                        Grid.Row="2"
                        Name="TextBlock1"
-                       Margin="116,57,172,0"
-                       IsHitTestVisible="False" VerticalAlignment="Top" Foreground="Gray" FontFamily="Constantia" FontSize="14">
+                       Margin="119,60,169,0"
+                       IsHitTestVisible="False"
+                   VerticalAlignment="Top" 
+                   Foreground="#424242" FontFamily="Constantia" FontSize="14">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -61,13 +69,19 @@
             </TextBlock.Style>
         </TextBlock>
         <TextBox Name="Password"
-                     Margin="108,86,108,139"
-                     Grid.Row="2" FontFamily="Constantia" FontSize="16" TextAlignment="Left"/>
-        <TextBlock Text="Пароль"
+                     Margin="111,95,105,130"
+                     Grid.Row="2" FontFamily="Constantia" 
+                 FontSize="16" TextAlignment="Left"
+                 Background="#E6CAB4"
+                 Foreground="#191919"/>
+        <TextBlock Text="Password"
                        Grid.Row="2"
                        Name="TextBlock2"
-                       Margin="116,90,189,0"
-                       IsHitTestVisible="False" VerticalAlignment="Top" Foreground="Gray" FontFamily="Constantia" FontSize="14">
+                       Margin="119,99,185,0"
+                       IsHitTestVisible="False"
+                   VerticalAlignment="Top"
+                   Foreground="#424242"
+                   FontFamily="Constantia" FontSize="14">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>
@@ -81,21 +95,31 @@
         </TextBlock>
 
         <CheckBox Name="Remember"
-                      Content="Запомнить меня" 
+                      Content="Remember me" 
                       BorderThickness="1,1,1,1" 
-                      Margin="126,125,144,105"
-                      Grid.Row="2" FontFamily="Constantia" FontSize="12" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                      Margin="0,137,0,0"
+                      Grid.Row="2" FontFamily="Constantia" FontSize="12"
+                  VerticalAlignment="Top" HorizontalAlignment="Center"
+                  Foreground="#191919"/>
 
-        <Button Height="20"
-                    Content="Войти"
-                    Margin="116,150,119,80" Click="Button_Click"
-                    Grid.Row="2" FontFamily="Constantia" FontSize="12"/>
+        <Button  Content="Continue"
+                 Margin="88,168,88,45"
+                 Click="Button_Click"
+                 Grid.Row="2" 
+                 FontFamily="Constantia"
+                 FontSize="24"
+                 Foreground="#191919"
+                 Background="#EDD89F"/>
 
         <Button Name="Reg"
-                    Height="20"
                     Click="Reg_Click"
-                    Content="Регистрация"
-                    Margin="116,187,119,43"
-                Grid.Row="2" FontFamily="Constantia" FontSize="12"/>
+                    Content="Create account"
+                    HorizontalAlignment="Center" 
+                    Margin="0,209,0,0"
+                 Width="162" 
+                    Height="18"
+                Grid.Row="2" FontFamily="Constantia" FontSize="12"
+                Background="#EDD89F"
+                Foreground="#191919"/>
     </Grid>
 </Window>
