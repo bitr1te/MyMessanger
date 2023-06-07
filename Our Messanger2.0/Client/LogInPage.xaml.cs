@@ -88,14 +88,16 @@ namespace Client
                     if (count > 0)
                     {
                         string Nick = "";
-                        string query1 = "SELECT Nick FROM Users WHERE Login = @Login AND Password = @Password";
+                        string query1 = "SELECT Name FROM Users WHERE Login = @Login AND Password = @Password";
                         using (SqlCommand command1 = new SqlCommand(query1, connection))
                         {
-                            command.Parameters.AddWithValue("@Login", login);
-                            command.Parameters.AddWithValue("@Password", password);
+                            command1.Parameters.AddWithValue("@Login", login);
+                            command1.Parameters.AddWithValue("@Password", password);
                             object result = command1.ExecuteScalar();
-
-                            Name = result.ToString();
+                            if (result != null)
+                            {
+                                Name = result.ToString();
+                            }
                         }
                         MainWindow mainWindow = new MainWindow(Nick);
                         mainWindow.Show();
