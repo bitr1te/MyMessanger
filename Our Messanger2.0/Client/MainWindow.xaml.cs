@@ -1,4 +1,5 @@
 ﻿using DevExpress.Mvvm;
+using DevExpress.Mvvm.POCO;
 using System;
 using System.Collections.Generic;
 using System.Linq;

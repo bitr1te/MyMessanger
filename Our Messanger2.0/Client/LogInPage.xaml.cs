@@ -69,7 +69,7 @@ namespace Client
                 Properties.Settings.Default.Remember = false;
                 Properties.Settings.Default.Save();
             }
-            string connectionString = "Data Source=MIKHAILPC1;Initial Catalog=OurMessandgerDB;Integrated Security=True;TrustServerCertificate=true;";
+            string connectionString = "Data Source=DESKTOP-OCDVJBU\\SQLEXPRESS02;Initial Catalog=OurMessangerDB;Integrated Security=True;TrustServerCertificate=true;";
 
             string login = Login.Text;
             string password = Password.Text;

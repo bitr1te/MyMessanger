@@ -32,7 +32,7 @@ namespace Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string connectionString = "Data Source=MIKHAILPC1;Initial Catalog=OurMessandgerDB;Integrated Security=True;TrustServerCertificate=true;";
+            string connectionString = "Data Source=DESKTOP-OCDVJBU\\SQLEXPRESS02;Initial Catalog=OurMessangerDB;Integrated Security=True;TrustServerCertificate=true;";
 
             string login = Login.Text;
             string password = Password.Text;
@@ -41,7 +41,7 @@ namespace Client
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "INSERT INTO Users (Name, Login, Password) VALUES (@Login, @Password, @Name)";
+                string query = "INSERT INTO Users (Name, Login, Password) VALUES (@Name, @Login, @Password)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Login", login);
