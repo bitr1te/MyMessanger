@@ -23,6 +23,7 @@ namespace Client
     public partial class MainWindow : Window
     {
         public string Nick;
+        int[] i = new int[1];
 
         public MainWindow(string Nick)
         {

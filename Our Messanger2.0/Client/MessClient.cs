@@ -18,6 +18,11 @@ namespace Client
             set => SetValue(value);
         }
 
+
+
+        //int selectedIndex
+        //Chat[] chats = new Chat[];
+
         private TcpClient? _client;
         private StreamReader? _reader;
         private StreamWriter? _writer;
