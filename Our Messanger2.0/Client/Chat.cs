@@ -16,5 +16,15 @@ namespace Client
             this.Member1 = Member1;
             this.Member2 = Member2;
         }
+
+        public int GetOwner()
+        {
+            return Member1;
+        }
+
+        public int GetTarget()
+        {
+            return Member2;
+        }
     }
 }

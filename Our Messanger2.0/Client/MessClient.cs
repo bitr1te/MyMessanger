@@ -1,9 +1,16 @@
 ﻿using DevExpress.Mvvm;
+using Microsoft.Data.SqlClient;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using System.Windows;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using System.Windows.Controls.Primitives;
+using System.Windows.Controls;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using System.Net.Mail;
 
 namespace Client
 {
@@ -18,18 +25,35 @@ namespace Client
             set => SetValue(value);
         }
 
-
-
-        //int selectedIndex
-        //Chat[] chats = new Chat[];
+        public List<Chat> chats = new List<Chat>();
 
         private TcpClient? _client;
         private StreamReader? _reader;
         private StreamWriter? _writer;
 
+        public void RefreshChats()
+        {
+            string con = "Data Source=DESKTOP-OCDVJBU\\SQLEXPRESS02;Initial Catalog=OurMessangerDB;Integrated Security=True;TrustServerCertificate=true;";
+            SqlConnection connection = new SqlConnection(con);
+
+            connection.Open();
+
+            var cmd = new SqlCommand("SELECT Member1, Member2 FROM Chats JOIN Users ON ID_user = Member1 WHERE Name = @Name", connection);
+            cmd.Parameters.AddWithValue("@Name", Nick);
+            using (var rd = cmd.ExecuteReader())
+            {
+                while (rd.Read()) // Нужен цикл, а не условие
+                {
+                    Chat chat = new Chat((int)rd["Member1"], (int)rd["Member2"]);
+                    chats.Add(chat);
+                }
+            }
+        }
+
         public MessClient()
         {
-
+            Nick = Properties.Settings.Default.Nick;
+            RefreshChats();
         }
         public MessClient(string Nick)
         {
@@ -49,19 +73,24 @@ namespace Client
                             var line = _reader?.ReadLine();
                             if (line != null)
                             {
-                                Chat += line + "\n";
+                                if(line.Contains("###"))
+                                {
+                                    MessageBox.Show("Пользователя не существует!");
+                                    continue;
+                                }
+                                RefreshChats();
                             }
                             else
                             {
                                 _client.Close();
-                                Chat += "Connected error.\n";
+                                MessageBox.Show("Connected error");
                             }
                         }
                         Task.Delay(10).Wait();
                     }
                     catch (Exception ex)
                     {
-                        Chat += ex.Message + "\n";
+                        MessageBox.Show(ex.Message);
                     }
                 }
             });

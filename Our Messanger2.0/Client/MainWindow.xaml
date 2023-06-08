@@ -46,10 +46,10 @@
             </Grid.ColumnDefinitions>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="200"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ListView Grid.Row="0" Name="ChatList"/>
+                <ListView Grid.Row="0" Name="ChatList" ItemsSource="{Binding chats}"/>
                 <StackPanel Orientation="Vertical" Grid.Row="1">
                     <TextBox Height="20"/>
                     <Button Content="Новый чат"

@@ -36,6 +36,7 @@ namespace Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            ChatList.UpdateLayout();
             Connect.Height = 0;
         }
     }

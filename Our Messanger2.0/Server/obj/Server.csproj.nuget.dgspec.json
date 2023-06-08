@@ -52,6 +52,14 @@
             "DevExpressMvvm": {
               "target": "Package",
               "version": "[22.1.3, )"
+            },
+            "Extended.Wpf.Toolkit": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[5.1.1, )"
             }
           },
           "imports": [
