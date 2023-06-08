@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
-        Loaded="Window_Loaded"
-    Title="Messanger" Height="450" Width="800">
+    Title="Messanger" Height="444" Width="800" ResizeMode="NoResize">
+    <Window.DataContext>
+        <local:MessClient/>
+    </Window.DataContext>
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="3"/>
@@ -24,7 +26,6 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel>
             <UniformGrid Columns="4">
@@ -32,37 +33,69 @@
             <UniformGrid Columns="4">
             </UniformGrid>
         </StackPanel>
-
-        <TextBox Grid.Row="1"
-                 TextAlignment="Left"
-                 IsReadOnly="True"
-                 IsReadOnlyCaretVisible="True"/>
-
-        <Grid Grid.Row="2">
+        <Button Name="Connect"
+                Grid.Row="0"
+                Command="{Binding ConnectCommand}"
+                Click="Button_Click"
+                Content="Начать" 
+                Margin="3,3,3,3" FontFamily="Constantia" FontSize="14"/>
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="6*"/>
-                <ColumnDefinition Width="15*"/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Ник:"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListView Grid.Row="0" Name="ChatList"/>
+                <StackPanel Orientation="Vertical" Grid.Row="1">
+                    <TextBox Height="20"/>
+                    <Button Content="Новый чат"
+                            Height="20" FontFamily="Constantia" FontSize="12"/>
+                    <Button Content="Подтвердить"
+                            Height="20" FontFamily="Constantia" FontSize="12"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="380"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0"
+                 TextAlignment="Left"
+                 Text="{Binding Chat}"
+                 IsReadOnly="True"
+                 IsReadOnlyCaretVisible="True" Margin="3,3,3,3"/>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Ник:"
                        Grid.Column="0"/>
-            <TextBox Name="Target"
+                    <TextBox Name="Target"
                      MaxLines="5"
+                     Text="{Binding Target}"
                      TextAlignment="Left"
                      Grid.Column="1"
                      TextWrapping="Wrap" Margin="3,3,3,3"/>
-            
-            <TextBox MaxLines="5"
+
+                    <TextBox MaxLines="5"
                      Name="Message"
+                     Text="{Binding Message}"
                      TextAlignment="Left"
                      Grid.Column="2"
                      TextWrapping="Wrap" Margin="3,3,3,3"/>
-            <Button
+                    <Button
                 Grid.Column="3"
-                Click="Button_Send_Click"
                 Command="{Binding SendCommand}"
                 Content="Отправить" Margin="3,3,3,3"/>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

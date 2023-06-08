@@ -23,32 +23,19 @@ namespace Client
     public partial class MainWindow : Window
     {
         public string Nick;
-        MessClient client;
 
         public MainWindow(string Nick)
         {
             InitializeComponent();
             this.Nick = Nick;
-        }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            client = new MessClient(Nick);
-            _ = client.ConnectCommand;
+
+            //ChatList.ItemsSource = ;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void Button_Send_Click(object sender, RoutedEventArgs e)
-        {
-            client.Target = Target.Text;
-            client.Message = Message.Text;
-            _ = client.SendCommand;
-
-            Message.Text = "";
+            Connect.Height = 0;
         }
     }
 }

@@ -7,6 +7,7 @@
       mc:Ignorable="d" 
       Title="Вход" Height="450" Width="400"
         Loaded="Window_Loaded"
+        Closed="Window_Closed"
       Background="#CEA1A6" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.DataContext>
         <local:MessClient/>

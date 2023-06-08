@@ -69,7 +69,7 @@ namespace Client
                 Properties.Settings.Default.Remember = false;
                 Properties.Settings.Default.Save();
             }
-            string connectionString = "Data Source=MIKHAILPC1;Initial Catalog=OurMessandgerDB;Integrated Security=True;TrustServerCertificate=true;";
+            string connectionString = "Data Source=DESKTOP-OCDVJBU\\SQLEXPRESS02;Initial Catalog=OurMessangerDB;Integrated Security=True;TrustServerCertificate=true;";
 
             string login = Login.Text;
             string password = Password.Text;
@@ -96,9 +96,10 @@ namespace Client
                             object result = command1.ExecuteScalar();
                             if (result != null)
                             {
-                                Name = result.ToString();
+                                Nick = result.ToString();
                             }
                         }
+                        Properties.Settings.Default.Nick = Nick;
                         MainWindow mainWindow = new MainWindow(Nick);
                         mainWindow.Show();
                         Hide();
@@ -109,6 +110,14 @@ namespace Client
                     }
                 }
             }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.Login = "";
+            Properties.Settings.Default.Password = "";
+            Properties.Settings.Default.Remember = false;
+            Properties.Settings.Default.Save();
         }
     }
 }

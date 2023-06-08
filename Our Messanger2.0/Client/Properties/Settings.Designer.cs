@@ -58,5 +58,17 @@ namespace Client.Properties {
                 this["Remember"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Nick {
+            get {
+                return ((string)(this["Nick"]));
+            }
+            set {
+                this["Nick"] = value;
+            }
+        }
     }
 }
