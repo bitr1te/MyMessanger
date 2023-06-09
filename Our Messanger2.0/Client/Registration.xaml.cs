@@ -38,6 +38,12 @@ namespace Client
             string password = Password.Text;
             string username = UserName.Text;
 
+            if (username.Contains("#"))
+            {
+                MessageBox.Show("Имя содержит недопуитимый символ (#)!");
+                return;
+            }
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -48,16 +54,7 @@ namespace Client
                     command.Parameters.AddWithValue("@Password", password);
                     command.Parameters.AddWithValue("@Name", username);
 
-                    int rowsAffected = command.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Values inserted into the database successfully.");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to insert values into the database.");
-                    }
+                    command.ExecuteNonQuery();
                 }
             }
         }

@@ -11,19 +11,18 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Controls;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using System.Net.Mail;
+using static Azure.Core.HttpHeader;
+using System.Text;
 
 namespace Client
 {
     public class MessClient : ViewModelBase
     {
         public string Nick { get; set; } = Properties.Settings.Default.Nick;
+        public int TargetId { get; set; } = Properties.Settings.Default.TargetId;
+        public int ID { get; set; } = Properties.Settings.Default.ID;
         public string Message { get => GetValue<string>(); set => SetValue(value); }
-        public string Target { get => GetValue<string>(); set => SetValue(value); }
-        public string Chat
-        {
-            get => GetValue<string>();
-            set => SetValue(value);
-        }
+        public string Chat { get => GetValue<string>(); set => SetValue(value); }
 
         public List<Chat> chats = new List<Chat>();
 
@@ -31,29 +30,9 @@ namespace Client
         private StreamReader? _reader;
         private StreamWriter? _writer;
 
-        public void RefreshChats()
-        {
-            string con = "Data Source=DESKTOP-OCDVJBU\\SQLEXPRESS02;Initial Catalog=OurMessangerDB;Integrated Security=True;TrustServerCertificate=true;";
-            SqlConnection connection = new SqlConnection(con);
-
-            connection.Open();
-
-            var cmd = new SqlCommand("SELECT Member1, Member2 FROM Chats JOIN Users ON ID_user = Member1 WHERE Name = @Name", connection);
-            cmd.Parameters.AddWithValue("@Name", Nick);
-            using (var rd = cmd.ExecuteReader())
-            {
-                while (rd.Read()) // Нужен цикл, а не условие
-                {
-                    Chat chat = new Chat((int)rd["Member1"], (int)rd["Member2"]);
-                    chats.Add(chat);
-                }
-            }
-        }
-
         public MessClient()
         {
             Nick = Properties.Settings.Default.Nick;
-            RefreshChats();
         }
         public MessClient(string Nick)
         {
@@ -73,17 +52,26 @@ namespace Client
                             var line = _reader?.ReadLine();
                             if (line != null)
                             {
-                                if(line.Contains("###"))
+                                if (line.Contains("#"))
                                 {
-                                    MessageBox.Show("Пользователя не существует!");
-                                    continue;
+                                    Chat = "";
+                                    line = line.Remove(0, 1);
+                                    string[] result = line.Split('*');
+                                    foreach (string s in result)
+                                    {
+                                        Chat += $"{s}\n";
+                                    }
                                 }
-                                RefreshChats();
+                                TargetId = Properties.Settings.Default.TargetId;
+                                _writer = new StreamWriter(_client.GetStream());
+                                _writer.AutoFlush = true;
+                                _writer?.WriteLine($"##:{TargetId}");
                             }
                             else
                             {
                                 _client.Close();
                                 MessageBox.Show("Connected error");
+                                break;
                             }
                         }
                         Task.Delay(10).Wait();
@@ -112,7 +100,8 @@ namespace Client
                             Listener();
                             _writer.AutoFlush = true;
 
-                            _writer.WriteLine($"Login: {Nick}");
+                            Nick = Properties.Settings.Default.Nick;
+                            _writer.WriteLine($"Login: {ID}");
                         }
                         catch (Exception ex)
                         {
@@ -131,7 +120,17 @@ namespace Client
                 {
                     return Task.Run(() =>
                     {
-                        _writer?.WriteLine($"{Target}:{Nick}: {Message}");
+                        Nick = Properties.Settings.Default.Nick;
+                        TargetId = Properties.Settings.Default.TargetId;
+
+                        if(Message == "" || Message is null)
+                        {
+                            _writer?.WriteLine($"{TargetId}:{Nick}: Я в сети!");
+                        }
+                        else
+                        {
+                            _writer?.WriteLine($"{TargetId}:{Nick}: {Message}");
+                        }
                         Message = "";
                     });
                 }, () => _client?.Connected == true, !string.IsNullOrWhiteSpace(Message));

@@ -15,6 +15,7 @@ namespace TCPChat.Server
     {
         static TcpListener listener = new(IPAddress.Any, 5050);
         static List<ConnectedClient> clients = new();
+        static string nick = "";
         static void Main(string[] args)
         {
             listener.Start();
@@ -23,28 +24,34 @@ namespace TCPChat.Server
             while (true)
             {
                 var client = listener.AcceptTcpClient();
-                string nick = "";
+                int ID = -1;
                 Task.Factory.StartNew(() =>
                 {
+                    ConnectedClient cli = new ConnectedClient(client, ID, nick);
+                    if (!client.Connected)
+                    {
+                        clients.Remove(cli);
+                    }
                     var sr = new StreamReader(client.GetStream());
                     while (client.Connected)
                     {
                         var line = sr.ReadLine();
-                        nick = line.Replace("Login: ", "");
 
-                        if (line.Contains("Login: ") && !string.IsNullOrWhiteSpace(nick))
+                        ID = Int32.Parse(line.Replace("Login: ", ""));
+
+                        if (line.Contains("Login: ") && !string.IsNullOrWhiteSpace(ID.ToString()))
                         {
-                            if (clients.FirstOrDefault(s => s.Name == nick) is null)
+                            if (clients.FirstOrDefault(s => s.ID == ID) is null)
                             {
-                                clients.Add(new ConnectedClient(client, nick));
-                                Console.WriteLine($"Новое подключение: {nick}");
+                                clients.Add(cli);
+                                Console.WriteLine($"Новое подключение: {ID}");
                                 break;
                             }
                             else
                             {
                                 var sw = new StreamWriter(client.GetStream());
                                 sw.AutoFlush = true;
-                                sw.WriteLine("Пользователь с таким ником уже есть");
+                                sw.WriteLine("Пользователь с таким ID уже есть");
                                 client.Client.Disconnect(false);
                             }
                         }
@@ -67,7 +74,13 @@ namespace TCPChat.Server
                             }
                             c++;
                             line = line.Remove(0, c);
-                            var target = sb.ToString();
+                            var targetId = sb.ToString();
+                            if (sb.ToString() == "##")
+                                targetId = line;
+
+
+
+                            string target = "";
 
                             string connectionString = "Data Source=DESKTOP-OCDVJBU\\SQLEXPRESS02;Initial Catalog=OurMessangerDB;Integrated Security=True;TrustServerCertificate=true;";
 
@@ -75,48 +88,29 @@ namespace TCPChat.Server
                             {
                                 connection.Open();
 
-                                string query1 = "SELECT ID_chat FROM Chats WHERE Member1 = @Member1 AND Member2 = @Member2";
-                                string getOwnerId = "SELECT ID_user FROM Users WHERE Name = @Nick";
-                                string getTargetId = "SELECT ID_user FROM Users WHERE Name = @Target";
-
-                                int ownerId = -1;
-                                int targetId = -1;
-                                using (SqlCommand command = new SqlCommand(getOwnerId, connection))
+                                string getNick = "SELECT Name FROM Users WHERE ID_user = @ID";
+                                using (SqlCommand command = new SqlCommand(getNick, connection))
                                 {
-                                    command.Parameters.AddWithValue("@Nick", nick);
+                                    command.Parameters.AddWithValue("@ID", ID);
 
-                                    ownerId = (int)command.ExecuteScalar();
+                                    nick = (string)command.ExecuteScalar();
                                 }
 
-                                using (SqlCommand command = new SqlCommand(getTargetId, connection))
-                                {
-                                    command.Parameters.AddWithValue("@Target", target);
-
-                                    if(command.ExecuteScalar() is null)
-                                    {
-                                        var sw1 = new StreamWriter(client.GetStream());
-                                        sw1.AutoFlush = true;
-                                        sw1.WriteLine("###");
-                                        Console.WriteLine("Попытка отправить сообщение несуществующему пользователю!");
-                                        continue;
-                                    }
-                                    targetId = (int)command.ExecuteScalar();
-                                }
-
+                                string getChatId = "SELECT ID_chat FROM Chats WHERE Member1 = @Member1 AND Member2 = @Member2";
                                 int id1 = -1;
                                 int id2 = -1;
-                                using (SqlCommand command = new SqlCommand(query1, connection))
+                                using (SqlCommand command = new SqlCommand(getChatId, connection))
                                 {
-                                    command.Parameters.AddWithValue("@Member1", ownerId);
+                                    command.Parameters.AddWithValue("@Member1", ID);
                                     command.Parameters.AddWithValue("@Member2", targetId);
 
-                                    if(command.ExecuteScalar() is null)
+                                    if (command.ExecuteScalar() is null)
                                     {
                                         string insertChat1 = "INSERT INTO Chats (Member1, Member2) VALUES (@Owner, @Target)";
 
                                         using (SqlCommand command1 = new SqlCommand(insertChat1, connection))
                                         {
-                                            command1.Parameters.AddWithValue("@Owner", ownerId);
+                                            command1.Parameters.AddWithValue("@Owner", ID);
                                             command1.Parameters.AddWithValue("@Target", targetId);
 
                                             int rowsAffected = command1.ExecuteNonQuery();
@@ -125,19 +119,48 @@ namespace TCPChat.Server
                                         using (SqlCommand command1 = new SqlCommand(insertChat2, connection))
                                         {
                                             command1.Parameters.AddWithValue("@Owner", targetId);
-                                            command1.Parameters.AddWithValue("@Target", ownerId);
+                                            command1.Parameters.AddWithValue("@Target", ID);
 
                                             int rowsAffected = command1.ExecuteNonQuery();
                                         }
                                     }
                                     id1 = (int)command.ExecuteScalar();
                                 }
-                                using (SqlCommand command = new SqlCommand(query1, connection))
+                                using (SqlCommand command = new SqlCommand(getChatId, connection))
                                 {
                                     command.Parameters.AddWithValue("@Member1", targetId);
-                                    command.Parameters.AddWithValue("@Member2", ownerId);
+                                    command.Parameters.AddWithValue("@Member2", ID);
 
                                     id2 = (int)command.ExecuteScalar();
+                                }
+
+                                if (sb.ToString() == "##")
+                                {
+                                    List<string> messages = new List<string>();
+                                    string getMessages = "SELECT Message FROM Messages WHERE ID_chat = @Id1 ORDER BY Date";
+                                    SqlCommand sqlCommand = new SqlCommand(getMessages, connection);
+                                    sqlCommand.Parameters.AddWithValue("@Id1", id1);
+
+                                    using (var rd = sqlCommand.ExecuteReader())
+                                    {
+                                        while (rd.Read())
+                                        {
+                                            messages.Add($"{rd["Message"]}");
+                                        }
+                                    }
+                                    var chatSend = new StreamWriter(client.GetStream());
+                                    chatSend.AutoFlush = true;
+                                    chatSend.WriteLine("#" + String.Join("*", messages));
+                                    continue;
+                                }
+
+                                string getTargetName = "SELECT Name FROM Users WHERE ID_user = @targetId";
+
+                                using (SqlCommand command = new SqlCommand(getTargetName, connection))
+                                {
+                                    command.Parameters.AddWithValue("@targetId", targetId);
+
+                                    target = (string)command.ExecuteScalar();
                                 }
 
                                 string query2 = "INSERT INTO Messages (ID_chat, Message, Date, Owner) VALUES (@id1, @line, @Date, @nick)";
@@ -147,7 +170,7 @@ namespace TCPChat.Server
                                     command.Parameters.AddWithValue("@id1", id1);
                                     command.Parameters.AddWithValue("@line", line);
                                     command.Parameters.AddWithValue("@Date", DateTime.Now);
-                                    command.Parameters.AddWithValue("@nick", ownerId);
+                                    command.Parameters.AddWithValue("@nick", nick);
 
                                     int rowsAffected = command.ExecuteNonQuery();
                                 }
@@ -156,7 +179,7 @@ namespace TCPChat.Server
                                     command.Parameters.AddWithValue("@id1", id2);
                                     command.Parameters.AddWithValue("@line", line);
                                     command.Parameters.AddWithValue("@Date", DateTime.Now);
-                                    command.Parameters.AddWithValue("@nick", ownerId);
+                                    command.Parameters.AddWithValue("@nick", nick);
 
                                     int rowsAffected = command.ExecuteNonQuery();
                                 }

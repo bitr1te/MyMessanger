@@ -87,8 +87,8 @@ namespace Client
 
                     if (count > 0)
                     {
-                        string Nick = "";
-                        string query1 = "SELECT Name FROM Users WHERE Login = @Login AND Password = @Password";
+                        int ID = -1;
+                        string query1 = "SELECT ID_user FROM Users WHERE Login = @Login AND Password = @Password";
                         using (SqlCommand command1 = new SqlCommand(query1, connection))
                         {
                             command1.Parameters.AddWithValue("@Login", login);
@@ -96,11 +96,26 @@ namespace Client
                             object result = command1.ExecuteScalar();
                             if (result != null)
                             {
-                                Nick = result.ToString();
+                                ID = (int)result;
                             }
                         }
-                        Properties.Settings.Default.Nick = Nick;
-                        MainWindow mainWindow = new MainWindow(Nick);
+
+                        string Name = "";
+                        string query2 = "SELECT Name FROM Users WHERE Login = @Login AND Password = @Password";
+                        using (SqlCommand command2 = new SqlCommand(query2, connection))
+                        {
+                            command2.Parameters.AddWithValue("@Login", login);
+                            command2.Parameters.AddWithValue("@Password", password);
+                            object result = command2.ExecuteScalar();
+                            if (result != null)
+                            {
+                                Name = result.ToString();
+                            }
+                        }
+
+                        Properties.Settings.Default.ID = ID;
+                        Properties.Settings.Default.Nick = Name;
+                        MainWindow mainWindow = new MainWindow();
                         mainWindow.Show();
                         Hide();
                     }

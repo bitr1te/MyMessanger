@@ -11,9 +11,6 @@
         ResizeMode="NoResize" 
         WindowStartupLocation="CenterScreen"
         Background="#CEA1A6">
-    <Window.DataContext>
-        <local:MessClient/>
-    </Window.DataContext>
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="Margin" Value="3"/>

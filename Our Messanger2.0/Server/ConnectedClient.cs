@@ -10,12 +10,14 @@ namespace TCPChat.Server
     public class ConnectedClient
     {
         public TcpClient Client { get; set; }
-        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Nick { get; set; }
 
-        public ConnectedClient(TcpClient client, string name)
+        public ConnectedClient(TcpClient client, int id, string nick)
         {
             Client = client;
-            Name = name;
+            ID = id;
+            Nick = nick;
         }
     }
 }

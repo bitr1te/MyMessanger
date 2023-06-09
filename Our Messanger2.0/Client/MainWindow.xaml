@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:b="clr-namespace:Lloyd.Shared.Behaviors"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" 
         xmlns:local="clr-namespace:Client"
         mc:Ignorable="d"
     Title="Messanger" Height="444" Width="800" ResizeMode="NoResize">
@@ -33,12 +36,15 @@
             <UniformGrid Columns="4">
             </UniformGrid>
         </StackPanel>
-        <Button Name="Connect"
-                Grid.Row="0"
-                Command="{Binding ConnectCommand}"
-                Click="Button_Click"
-                Content="Начать" 
-                Margin="3,3,3,3" FontFamily="Constantia" FontSize="14"/>
+        <Button 
+            Name="Connect"
+            Grid.Row="0"
+            Command="{Binding ConnectCommand}"
+            Click="Button_Click"
+            Content="Начать" 
+            Margin="3,3,3,3" 
+            FontFamily="Constantia" 
+            FontSize="14"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
@@ -46,16 +52,39 @@
             </Grid.ColumnDefinitions>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <ListView Grid.Row="0" Name="ChatList" ItemsSource="{Binding chats}"/>
+                <ListView 
+                    Grid.Row="0" 
+                    Name="ChatList" 
+                    ItemsSource="{Binding chats}"
+                    SelectionChanged="ChatList_SelectionChanged" SelectedIndex="0"/>
                 <StackPanel Orientation="Vertical" Grid.Row="1">
-                    <TextBox Height="20"/>
-                    <Button Content="Новый чат"
-                            Height="20" FontFamily="Constantia" FontSize="12"/>
-                    <Button Content="Подтвердить"
-                            Height="20" FontFamily="Constantia" FontSize="12"/>
+                    <TextBox 
+                        Height="20"
+                        Name="NewChatBox"/>
+                    <Button 
+                        Name="NewChatButton"
+                        Content="Новый чат"
+                        Click="NewChatButton_Click"
+                        Height="20" 
+                        FontFamily="Constantia" 
+                        FontSize="13"/>
+                    <Button 
+                        Name="ConfirmButton"
+                        Content="Подтвердить"
+                        Click="ConfirmButton_Click"
+                        Height="20" 
+                        FontFamily="Constantia" 
+                        FontSize="13"/>
+                    <Button
+                        Name="RefreshChatButton"
+                        Click="RefreshChatButton_Click"
+                        Height="20" 
+                        FontFamily="Constantia" 
+                        FontSize="13"
+                        Content="Обновить"/>
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="1">
@@ -63,37 +92,49 @@
                     <RowDefinition Height="380"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <TextBox Grid.Row="0"
-                 TextAlignment="Left"
-                 Text="{Binding Chat}"
-                 IsReadOnly="True"
-                 IsReadOnlyCaretVisible="True" Margin="3,3,3,3"/>
+                <TextBox 
+                    Name="ChatBox"
+                    Grid.Row="0"
+                    Text="{Binding Chat}"
+                    TextAlignment="Left"
+                    IsReadOnly="True" 
+                    Margin="3,3,3,3" FontFamily="Constantia" FontSize="16"/>
                 <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="6*"/>
                         <ColumnDefinition Width="15*"/>
-                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Ник:"
-                       Grid.Column="0"/>
-                    <TextBox Name="Target"
-                     MaxLines="5"
-                     Text="{Binding Target}"
-                     TextAlignment="Left"
-                     Grid.Column="1"
-                     TextWrapping="Wrap" Margin="3,3,3,3"/>
-
-                    <TextBox MaxLines="5"
-                     Name="Message"
-                     Text="{Binding Message}"
-                     TextAlignment="Left"
-                     Grid.Column="2"
-                     TextWrapping="Wrap" Margin="3,3,3,3"/>
+                    <TextBox
+                        MaxLines="5"
+                        Name="Message"
+                        Text="{Binding Message}"
+                        TextAlignment="Left"
+                        TextWrapping="Wrap" 
+                        Grid.Column="0" Height="18"/>
                     <Button
-                Grid.Column="3"
-                Command="{Binding SendCommand}"
-                Content="Отправить" Margin="3,3,3,3"/>
+                        Name="SendButton"
+                        Grid.Column="1"
+                        Command="{Binding SendCommand}"
+                        Content="Отправить"
+                        FontFamily="Constantia" FontSize="12"/>
+                    <TextBox
+                        MaxLines="5"
+                        Name="NewNickBox"
+                        TextAlignment="Left"
+                        TextWrapping="Wrap" 
+                        Grid.Column="2" Width="137" FontFamily="Constantia" FontSize="12" IsInactiveSelectionHighlightEnabled="True" Height="18"/>
+                    <Button
+                        Name="OkNickButton"
+                        Click="OkNickButton_Click"
+                        Grid.Column="3"
+                        Content="Ок" Margin="5,3,10,3" FontFamily="Constantia" FontSize="12" Width="74"/>
+                    <Button
+                        Name="ChangeNickButton"
+                        Click="ChangeNickButton_Click"
+                        Grid.Column="3"
+                        Content="Смена ника" Margin="2,3,5,3" FontFamily="Constantia" FontSize="12"/>
                 </Grid>
             </Grid>
         </Grid>

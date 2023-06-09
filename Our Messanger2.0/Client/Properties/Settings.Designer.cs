@@ -70,5 +70,29 @@ namespace Client.Properties {
                 this["Nick"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int TargetId {
+            get {
+                return ((int)(this["TargetId"]));
+            }
+            set {
+                this["TargetId"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int ID {
+            get {
+                return ((int)(this["ID"]));
+            }
+            set {
+                this["ID"] = value;
+            }
+        }
     }
 }
