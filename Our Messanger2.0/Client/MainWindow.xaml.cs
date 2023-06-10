@@ -31,7 +31,7 @@ namespace Client
         List<string> targetsName = new List<string>();
         List<bool> sayHellow = new List<bool>();
 
-        string con = "Data Source=DESKTOP-OCDVJBU\\SQLEXPRESS02;Initial Catalog=OurMessangerDB;Integrated Security=True;TrustServerCertificate=true;";
+        string con = "Data Source=MIKHAILPC1;Initial Catalog=OurMessandgerDB;Integrated Security=True;TrustServerCertificate=true;";
 
         public MainWindow()
         {
@@ -265,7 +265,7 @@ namespace Client
 
             if (username.Contains("#"))
             {
-                MessageBox.Show("Имя содержит недопуитимый символ (#)!");
+                MessageBox.Show("Имя содержит недопуcтимый символ (#)!");
                 return;
             }
 
