@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая работа\\team-1111\\Our Messanger2.0\\Client\\Client.csproj": {}
+    "C:\\Users\\Димас\\source\\repos\\team-1111\\Our Messanger2.0\\Client\\Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая работа\\team-1111\\Our Messanger2.0\\Client\\Client.csproj": {
+    "C:\\Users\\Димас\\source\\repos\\team-1111\\Our Messanger2.0\\Client\\Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая работа\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
+        "projectUniqueName": "C:\\Users\\Димас\\source\\repos\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
         "projectName": "Client",
-        "projectPath": "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая работа\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
-        "packagesPath": "C:\\Users\\Михаил\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Михаил\\Desktop\\ООАиД\\Курсовая работа\\team-1111\\Our Messanger2.0\\Client\\obj\\",
+        "projectPath": "C:\\Users\\Димас\\source\\repos\\team-1111\\Our Messanger2.0\\Client\\Client.csproj",
+        "packagesPath": "C:\\Users\\Димас\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Димас\\source\\repos\\team-1111\\Our Messanger2.0\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Михаил\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Димас\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

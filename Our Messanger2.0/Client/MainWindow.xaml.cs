@@ -31,7 +31,7 @@ namespace Client
         List<string> targetsName = new List<string>();
         List<bool> sayHellow = new List<bool>();
 
-        string con = "Data Source=MIKHAILPC1;Initial Catalog=OurMessandgerDB;Integrated Security=True;TrustServerCertificate=true;";
+        string con = "Data Source=DESKTOP-OCDVJBU\\SQLEXPRESS02;Initial Catalog=OurMessangerDB;Integrated Security=True;TrustServerCertificate=true;";
 
         public MainWindow()
         {
@@ -44,6 +44,21 @@ namespace Client
 
             OkNickButton.Width = 0;
             NewNickBox.Width = 0;
+
+            if (ChatList.SelectedIndex == -1)
+            {
+                Message.Height = 0;
+                SendButton.Width = 0;
+            }
+            else
+            {
+                Message.Height = 20;
+                SendButton.Height = 20;
+            }
+
+
+            Connect.Command.Execute(null);
+            Button_Click(Connect, null);
         }
 
         public void RefreshChats()
@@ -66,7 +81,7 @@ namespace Client
                 }
             }
 
-            foreach (var id in targetsId) 
+            foreach (var id in targetsId)
             {
                 var getName = new SqlCommand("SELECT Name FROM Users WHERE ID_user = @Id", connection);
                 getName.Parameters.AddWithValue("@Id", id);
@@ -115,29 +130,58 @@ namespace Client
             ChatList.ItemsSource = targetsName;
             Connect.Height = 0;
 
-            if(targetsId.Count == 0) 
-            {
-                Properties.Settings.Default.TargetId = 0;
-                return;
-            }
-            int targetId = targetsId[ChatList.SelectedIndex];
-            Properties.Settings.Default.TargetId = targetId;
-
             NewChatButton.Height = 20;
             RefreshChatButton.Height = 20;
+
+            if (ChatList.SelectedIndex == -1)
+            {
+                SendButton.Height = 0;
+                SendButton.Width = 98;
+                Message.Height = 0;
+                return;
+            }
+            else
+            {
+                SendButton.Height = 20;
+                SendButton.Width = 98;
+                Message.Height = 20;
+            }
+
+            int targetId = targetsId[ChatList.SelectedIndex];
+            Properties.Settings.Default.TargetId = targetId;
         }
 
         private void ChatList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RefreshChatBox();
+            RefreshChats();
+
+            SendButton.IsEnabled = true;
+
+            SendButton.Height = 20;
+            Message.Height = 20;
 
             int targetId = targetsId[ChatList.SelectedIndex];
             Properties.Settings.Default.TargetId = targetId;
 
-            if (!sayHellow[ChatList.SelectedIndex])
+            if (ChatList.SelectedIndex == -1)
+                return;
+
+            if (sayHellow.Count > 0)
             {
-                SendButton.Command.Execute(null);
-                sayHellow[ChatList.SelectedIndex] = true;
+                try
+                {
+                    if (!sayHellow[ChatList.SelectedIndex])
+                    {
+                        SendButton.Command.Execute(null);
+                        sayHellow[ChatList.SelectedIndex] = true;
+                    }
+                }
+                catch
+                {
+                    sayHellow.Add(true);
+                    SendButton.Command.Execute(null);
+                }
             }
         }
 
@@ -227,7 +271,7 @@ namespace Client
             insert1.Parameters.AddWithValue("@Member2", newMemberId);
             using (insert1)
             {
-                 int rowsAffected = insert1.ExecuteNonQuery();
+                int rowsAffected = insert1.ExecuteNonQuery();
             }
 
             var insert2 = new SqlCommand("INSERT INTO Chats (Member1, Member2) VALUES (@Member1, @Member2)", connection);
@@ -265,7 +309,7 @@ namespace Client
 
             if (username.Contains("#"))
             {
-                MessageBox.Show("Имя содержит недопуcтимый символ (#)!");
+                MessageBox.Show("Имя содержит недопуитимый символ (#)!");
                 return;
             }
 
@@ -276,20 +320,20 @@ namespace Client
 
             var checkNick = new SqlCommand("SELECT COUNT(*) FROM Users WHERE Name = @Name", connection);
             checkNick.Parameters.AddWithValue("@Name", username);
-            using( checkNick)
+            using (checkNick)
             {
-                if((int)checkNick.ExecuteScalar() > 0)
+                if ((int)checkNick.ExecuteScalar() > 0)
                 {
                     MessageBox.Show("Человек с таким ником уже существует!");
                     return;
-                } 
+                }
             }
 
 
             var updateCom = new SqlCommand("UPDATE Users SET Name = @NewName WHERE ID_user = @ID", connection);
             updateCom.Parameters.AddWithValue("@ID", ID);
             updateCom.Parameters.AddWithValue("@NewName", username);
-            using(updateCom)
+            using (updateCom)
             {
                 updateCom.ExecuteNonQuery();
             }
@@ -297,6 +341,12 @@ namespace Client
             ChangeNickButton.Width = 74;
             OkNickButton.Width = 0;
             NewNickBox.Width = 0;
+        }
+
+        private void SendButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ChatList.SelectedIndex == -1)
+                SendButton.IsEnabled = false;
         }
     }
 }

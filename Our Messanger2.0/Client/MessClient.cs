@@ -101,6 +101,7 @@ namespace Client
                             _writer.AutoFlush = true;
 
                             Nick = Properties.Settings.Default.Nick;
+                            ID = Properties.Settings.Default.ID;
                             _writer.WriteLine($"Login: {ID}");
                         }
                         catch (Exception ex)
@@ -123,7 +124,7 @@ namespace Client
                         Nick = Properties.Settings.Default.Nick;
                         TargetId = Properties.Settings.Default.TargetId;
 
-                        if(Message == "" || Message is null)
+                        if ((Message == "" || Message is null) && TargetId != -1)
                         {
                             _writer?.WriteLine($"{TargetId}:{Nick}: Я в сети!");
                         }
